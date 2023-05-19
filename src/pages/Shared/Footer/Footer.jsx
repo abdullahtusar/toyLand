@@ -41,7 +41,7 @@ const Footer = () => {
                 <img width="30" height="30" className='bg-white p-[2px] rounded-3xl' src={logo} alt="" />
                     <p>Copyright © 2023 - All right reserved</p>
                 </div>
-                <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+                <div className="grid-flow-col gap-4 md:place-self-center justify-self-center md:justify-self-end">
                     <a>
                         <FaFacebook className='w-6 h-6 bg-[#3b5998] p-1 rounded'></FaFacebook>
                     </a>

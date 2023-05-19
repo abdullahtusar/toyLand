@@ -7,7 +7,7 @@ const NavBar = () => {
                 <div className='grid justify-center pt-4 pb-1'>
                     <img width="50" src={logo} />
                 </div>
-                <a className="btn btn-ghost normal-case text-3xl font-extrabold pb-2">Toy Land</a>
+                <a className="btn btn-ghost normal-case text-3xl font-extrabold pb-2 ">Toy Land</a>
             </div>
             <div className="navbar bg-base-200 border-2 rounded">
                 <div className="navbar-start">

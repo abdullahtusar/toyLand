@@ -13,7 +13,7 @@ const Banner = () => {
                             <h1 className='text-3xl md:text-6xl text-white font-bold'>Toy Land Unleash the Magic of Play</h1>
                             <p className='text-white'>Welcome to our toy website, where imagination takes flight and playtime knows no limits!</p>
                             <div>
-                                <button className="btn bg-red-600 text-white mr-6 mb-4">Buy Toys</button>
+                                <button className="btn bg-red-700 text-white mr-6 mb-4">Buy Toys</button>
                             </div>
                         </div>
                     </div>

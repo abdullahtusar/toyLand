@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import Category from '../Category/Category';
 import AboutUs from '../AboutUs/AboutUs';
+import Partners from '../Partner/Partners';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Gallery></Gallery>
             <Category></Category>
             <AboutUs></AboutUs>
+            <Partners></Partners>
         </div>
     );
 };

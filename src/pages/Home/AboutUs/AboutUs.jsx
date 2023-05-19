@@ -3,7 +3,7 @@ import about_img from '../../../assets/about.jpg'
 import { FaArrowRight } from 'react-icons/fa';
 const AboutUs = () => {
     return (
-        <div className='bg-base-200'>
+        <div className='bg-base-200 rounded-b-xl'>
             <h1 className='text-4xl text-center font-bold py-8 text-gray-600'>About Us</h1>
             <div className='md:flex gap-12 items-center'>
                 <div>

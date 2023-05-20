@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SubCategory from './SubCategory';
+import SubCategory2 from './SubCategory2';
+import SubCategory3 from './SubCategory3';
 const Category = () => {
     const [toys, setToys] = useState([]);
     useEffect(() => {
@@ -28,8 +30,7 @@ const Category = () => {
 
                     <div className='bg-white'>
                         <TabPanel>
-                            <h2>Any content 1</h2>
-                            <div className='md:grid md:grid-cols-3'>
+                            <div className='grid md:grid-cols-3 md:p-10 justify-items-center'>
                                 {
                                     toys.map(toy => <SubCategory
                                         key={toy._id}
@@ -39,10 +40,24 @@ const Category = () => {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 2</h2>
+                            <div className='grid md:grid-cols-3 md:p-10 justify-items-center'>
+                                {
+                                    toys.map(toy => <SubCategory2
+                                        key={toy._id}
+                                        toy={toy}
+                                    ></SubCategory2>)
+                                }
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 3</h2>
+                            <div className='grid md:grid-cols-3 md:p-10 justify-items-center'>
+                                {
+                                    toys.map(toy => <SubCategory3
+                                        key={toy._id}
+                                        toy={toy}
+                                    ></SubCategory3>)
+                                }
+                            </div>
                         </TabPanel>
                     </div>
                 </Tabs>

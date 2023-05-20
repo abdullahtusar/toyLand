@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
@@ -28,6 +28,15 @@ const Login = () => {
         })
 
     }
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => console.log(error));
+    }
     return (
         <div>
             <div className="hero w-full min-h-screen bg-base-200" style={{ backgroundImage: `url("https://i.ibb.co/7ttB460/wallpaperflare-com-wallpaper-4.jpg")` }}>
@@ -40,13 +49,13 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" placeholder="email" className="input input-bordered" />
+                                    <input type="text" placeholder="email" name="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" placeholder="password" className="input input-bordered" />
+                                    <input type="password" placeholder="password" name='password' className="input input-bordered" required />
                                     {/* <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label> */}
@@ -59,7 +68,7 @@ const Login = () => {
                             <div>
                                 <div className="divider">Or Sign Up with</div>
                                 <div className='text-center'>
-                                    <button className="btn btn-circle bg-red-600 font-bold border-0">
+                                    <button onClick={handleGoogleSignIn} className="btn btn-circle bg-red-600 font-bold border-0">
                                         <FaGoogle></FaGoogle>
                                     </button>
                                 </div>

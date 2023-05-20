@@ -51,12 +51,15 @@ const NavBar = () => {
                     </ul>
                 </div>
                 {
-                    user? <div className="navbar-end">
-                    <Link onClick={handleLogOut} className="btn bg-red-600 border-0 ">LogOut</Link> </div>
-                    : 
-                    <div className="navbar-end">
-                    <Link to="/login" className="btn bg-red-600 border-0 ">Login</Link>
-                </div>
+                    user ? <div className="navbar-end">
+                        {
+                            user.photoURL && <img style={{ height: "50px", width: "50px" }}  src={user.photoURL} title={user.displayName} className='rounded-3xl mr-4'/>
+                        }
+                        <Link onClick={handleLogOut} className="btn bg-red-600 border-0 ">LogOut</Link> </div>
+                        :
+                        <div className="navbar-end">
+                            <Link to="/login" className="btn bg-red-600 border-0 ">Login</Link>
+                        </div>
                 }
             </div>
         </div>

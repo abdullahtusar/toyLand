@@ -53,7 +53,7 @@ const AddAToy = () => {
     return (
         <div>
             <div style={{backgroundImage: `url("https://i.ibb.co/W2hFjjK/wallpaperflare-com-wallpaper-3.jpg")` }} className="p-8 md:p-16 border-b-2 border-base-800 bg-base-200 rounded">
-                <form className='md:w-9/12 mx-auto' onSubmit={handleAddToy}>
+                <form className='md:w-9/12 mx-auto bg-red-50 bg-opacity-25 rounded-lg p-4 md:p-8' onSubmit={handleAddToy}>
                     <h1 className="text-5xl font-bold mb-10 text-center text-white">Add Your Toy</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="form-control">

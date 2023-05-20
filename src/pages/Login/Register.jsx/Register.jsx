@@ -7,7 +7,7 @@ const Register = () => {
         <div>
             <div className="hero w-full min-h-screen bg-base-200" style={{ backgroundImage: `url("https://i.ibb.co/7ttB460/wallpaperflare-com-wallpaper-4.jpg")` }}>
                 <div className="hero-content w-full flex-col lg:flex-row-reverse">
-                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100 bg-opacity-90">
                         <div className="card-body">
                             <h1 className='text-3xl font-bold text-center'>Register</h1>
                             <form>

@@ -5,7 +5,6 @@ import Footer from '../../Shared/Footer/Footer';
 const Blogs = () => {
     return (
         <div>
-            <NavBar></NavBar>
             <div>
                 <div className="hero rounded" style={{ backgroundImage: `url("https://i.ibb.co/WcgLLgD/slider3.jpg")` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
@@ -34,7 +33,6 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

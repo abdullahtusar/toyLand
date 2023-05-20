@@ -16,7 +16,7 @@ const SubCategory2 = ({toy}) => {
                                     <p>Rating: { rating }</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn bg-red-600 border-0">View Details</button>
+                                    <button className="btn bg-red-600 border-0">Details</button>
                                 </div>
                             </div>
                         </div>

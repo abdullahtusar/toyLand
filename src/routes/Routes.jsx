@@ -7,12 +7,15 @@ import ErrorPage from '../pages/Home/ErrorPage/ErrorPage';
 import Blogs from '../pages/Home/Blogs/Blogs';
 import AddAToy from '../pages/Home/AddAToy/AddAToy';
 import Home from '../pages/Home/Home/Home';
+import Login from '../pages/Login/Login/Login';
+import Register from '../pages/Login/Register.jsx/Register';
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -27,8 +30,12 @@ const router = createBrowserRouter([
             element: <AddAToy></AddAToy>
         },
         {
-            path:"*",
-            element: <ErrorPage></ErrorPage>
+            path: '/login',
+            element: <Login></Login>
+        },
+        {
+            path: '/register',
+            element: <Register></Register>
         }
       ]
     }

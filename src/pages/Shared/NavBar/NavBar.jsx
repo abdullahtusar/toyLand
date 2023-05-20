@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/logo.png'
+import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
         <div>
@@ -7,7 +8,7 @@ const NavBar = () => {
                 <div className='grid justify-center pt-4 pb-1'>
                     <img width="50" src={logo} />
                 </div>
-                <a className="btn btn-ghost normal-case text-3xl font-extrabold pb-2 ">Toy Land</a>
+                <Link to="/" className="btn btn-ghost normal-case text-3xl font-extrabold pb-2 ">Toy Land</Link>
             </div>
             <div className="navbar bg-base-200 border-2 rounded">
                 <div className="navbar-start">
@@ -28,11 +29,11 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-semibold">
-                        <li><a>Home</a></li>
+                        <li><Link to="/">Home</Link></li>
                         <li><a>All Toys</a></li>
                         <li><a>My Toys</a></li>
                         <li><a>Add A Toy</a></li>
-                        <li><a>Blogs</a></li>
+                        <li><Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

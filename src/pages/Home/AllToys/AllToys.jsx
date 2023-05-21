@@ -5,7 +5,7 @@ import useTitle from '../../../hook/useTitle';
 
 const AllToys = () => {
     useTitle('All Toys')
-    const [query, setQuery]= useState("");
+    const [query, setQuery] = useState("");
     const toys = useLoaderData();
     const search = (data) => {
         return data.filter((item) => item.name.toLowerCase().includes(query))
@@ -17,14 +17,19 @@ const AllToys = () => {
                     {/* head*/}
                     <thead>
                         <tr>
+                            <th>
+                                <label>
+                                    <input type="checkbox" className="checkbox" />
+                                </label>
+                            </th>
                             <th>Seller</th>
                             <th>Toy Title</th>
                             <th>Sub-Category</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>
-                                <input type="text" placeholder="Search" className="search p-2 rounded-lg border-4 border-gray-200" 
-                                onChange={e=>setQuery(e.target.value)}/>
+                                <input type="text" placeholder="Search" className="search p-2 rounded-lg border-4 border-gray-200"
+                                    onChange={e => setQuery(e.target.value)} />
                             </th>
                         </tr>
                     </thead>

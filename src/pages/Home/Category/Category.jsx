@@ -14,11 +14,11 @@ const Category = () => {
     console.log(toys)
 
     return (
-        <div className='bg-base-200 p-6 md:p-12'>
-            <div className='border-[5px] border-gray-400 rounded'>
+        <div className='bg-base-200 rounded p-6 md:p-12'>
+            <div className='border-[5px] border-gray-400 rounded-lg'>
                 <Tabs>
                     <div className='p-3  border-gray-400 text-center text-gray-600'>
-                        <h1 className='text-4xl text-center font-bold py-6'>Shop By Category</h1>
+                        <h1 className='text-4xl text-center font-bold py-6'>Our Products</h1>
                     </div>
                     <div className='font-semibold text-center pb-1'>
                         <TabList className="border-0">

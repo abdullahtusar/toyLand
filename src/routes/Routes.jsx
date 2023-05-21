@@ -11,6 +11,7 @@ import Login from '../pages/Login/Login/Login';
 import Register from '../pages/Login/Register.jsx/Register';
 import PrivateRoute from './PrivateRoute';
 import SingleProduct from '../pages/Home/Products/SingleProduct';
+import AllToys from '../pages/Home/AllToys/AllToys';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         {
             path: '/addatoy',
             element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+        },
+        {
+            path: '/allToys',
+            element: <AllToys></AllToys>,
+            loader: () => fetch('http://localhost:5000/toys')
         },
         {
             path: '/toys/:id',

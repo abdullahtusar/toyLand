@@ -20,12 +20,12 @@ const SubCategory3 = ({ toy }) => {
                         <div className="card-body">
                             <h2 className="card-title">{title}</h2>
                             <div className='flex justify-between'>
-                                <div>
+                                <div className='text-gray-500'>
                                     <p>Price: {price}$</p>
                                     <p>Rating: {rating}</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                <Link to={`/toys/${_id}`}><button className="btn bg-red-600 border-0">Details</button></Link>
+                                    <Link to={`/toys/${_id}`}><button className="btn bg-red-600 border-0">Details</button></Link>
                                 </div>
                             </div>
                         </div>

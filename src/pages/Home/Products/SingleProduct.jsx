@@ -15,7 +15,7 @@ const SingleProduct = () => {
                         </div>
                     </div>
                 </div>
-                <div className="hero min-h-screen md:min-h-max bg-red-50">
+                <div className="hero min-h-screen md:min-h-max md:py-36 bg-base-200 border-4 border-gray-300 rounded">
                     <div className="hero-content flex-col lg:flex-row">
                         <img src={photo} className="md:max-w-sm rounded-lg shadow-2xl" />
                         <div>

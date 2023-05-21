@@ -15,10 +15,10 @@ const NavBar = () => {
 
     const NavItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/alltoys">All Toys</Link></li>
+        <li><Link to="/allToys">All Toys</Link></li>
         {
             user ? <>
-                <li><Link to="/mytoys">My Toys</Link></li>
+                <li><Link to="/myToys">My Toys</Link></li>
                 <li><Link to="/addatoy">Add A Toy</Link></li>
             </> :
                 <></>

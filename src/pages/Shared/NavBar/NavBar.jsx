@@ -53,7 +53,10 @@ const NavBar = () => {
                 {
                     user ? <div className="navbar-end">
                         {
-                            user.photoURL && <img style={{ height: "50px", width: "50px", hover: `${user.displayName}` }}  src={user.photoURL} title={user.displayName} className='rounded-3xl mr-4 border-2 border-gray-300'/>
+                            user.photoURL && <div className="tooltip tooltip-bottom" data-tip={`${user.displayName}`}>
+                                <img style={{ height: "50px", width: "50px"}} src={user.photoURL} className='rounded-3xl mr-4 border-2 border-gray-300' />
+                            </div>
+
                         }
                         <Link onClick={handleLogOut} className="btn bg-red-600 border-0 ">LogOut</Link> </div>
                         :

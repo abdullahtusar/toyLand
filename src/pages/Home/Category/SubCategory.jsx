@@ -26,7 +26,7 @@ const SubCategory = ({ toy }) => {
                                 </div>
                                 <div className="card-actions justify-end">
                                     {/* <button className="btn bg-red-600 border-0"><Link to='/singleToy'>Details</Link></button> */}
-                                    <Link to={`/toys/${_id}`}><button className="btn bg-red-600 border-0">Details</button></Link>
+                                    <Link to={`/toys/toy/${_id}`}><button className="btn bg-red-600 border-0">Details</button></Link>
                                 </div>
                             </div>
                         </div>

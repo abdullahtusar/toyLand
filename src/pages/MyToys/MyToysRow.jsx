@@ -27,7 +27,7 @@ const MyToysRow = ({myToy, handleDelete}) => {
             <td>{category}</td>
             <td>${price}</td>
             <th>
-                <Link to={`/toys/update/${_id}`}>
+                <Link to={`/toys/${_id}`}>
                     <button className="btn btn-ghost btn-xl"><FaEdit className='text-xl '/></button>
                 </Link>
                 <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xl"><FaTrash className='text-xl text-red-600'/></button>

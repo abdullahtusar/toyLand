@@ -44,12 +44,12 @@ const router = createBrowserRouter([
             element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
         },
         {
-            path: '/toys/:id',
+            path: '/toys/toy/:id',
             element: <PrivateRoute><SingleProduct></SingleProduct></PrivateRoute>,
             loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${params.id}`)
         },
         {
-            path: '/toys/update/:id',
+            path: '/toys/:id',
             element: <PrivateRoute><UpdateToys></UpdateToys></PrivateRoute>,
             loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${params.id}`)
         },

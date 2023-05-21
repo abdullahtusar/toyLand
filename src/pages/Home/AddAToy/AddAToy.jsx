@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const AddAToy = () => {
+    const {user} = useContext(AuthContext);
+
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
@@ -72,13 +75,13 @@ const AddAToy = () => {
                             <label className="label">
                                 <span className="label-text text-white font-semibold">Seller Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="seller name" className="input input-bordered" required />
+                            <input type="text" name="name" placeholder="seller name" defaultValue={user?.displayName} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white font-semibold">Seller Email</span>
                             </label>
-                            <input type="text" name="email" placeholder="email" className="input input-bordered" required />
+                            <input type="text" name="email" placeholder="email" defaultValue={user?.email} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label id="category" className="label">

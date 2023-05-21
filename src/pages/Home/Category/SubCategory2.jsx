@@ -4,7 +4,7 @@ const SubCategory2 = ({toy}) => {
     const { title, category, photo, price, rating } = toy;
     return (
         <>
-            <div className='my-5 md:my-2'>
+            <div className='mb-2'>
                 {
                     category && category === "starwars" ? <div className="card w-60 md:w-96 bg-base-100 shadow-xl border-4 border-gray-300">
                         <figure><img src={photo} alt="Shoes" /></figure>

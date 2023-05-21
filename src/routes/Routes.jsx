@@ -9,6 +9,8 @@ import AddAToy from '../pages/Home/AddAToy/AddAToy';
 import Home from '../pages/Home/Home/Home';
 import Login from '../pages/Login/Login/Login';
 import Register from '../pages/Login/Register.jsx/Register';
+import PrivateRoute from './PrivateRoute';
+import SingleProduct from '../pages/Home/Products/SingleProduct';
 
 
 const router = createBrowserRouter([
@@ -27,7 +29,11 @@ const router = createBrowserRouter([
         },
         {
             path: '/addatoy',
-            element: <AddAToy></AddAToy>
+            element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
+        },
+        {
+            path: '/singleToy',
+            element: <PrivateRoute><SingleProduct></SingleProduct></PrivateRoute>
         },
         {
             path: '/login',

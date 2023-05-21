@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import { Link } from 'react-router-dom';
 const SubCategory3 = ({ toy }) => {
-    const { title, category, photo, price, rating } = toy;
+    const { _id, title, category, photo, price, rating } = toy;
     useEffect(() => {
         AOS.init({ duration: 1000 })
     }, [])
@@ -24,7 +25,7 @@ const SubCategory3 = ({ toy }) => {
                                     <p>Rating: {rating}</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn bg-red-600 border-0">Details</button>
+                                <Link to={`/toys/${_id}`}><button className="btn bg-red-600 border-0">Details</button></Link>
                                 </div>
                             </div>
                         </div>

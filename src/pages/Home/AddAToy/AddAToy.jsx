@@ -90,7 +90,7 @@ const AddAToy = () => {
                             {/* <input type="text" name="name" placeholder="category" className="input input-bordered" />
                             <label ></label> */}
                             <select name="category" id="category" className="input input-bordered" required >
-                                <option></option>
+                                <option>Unknown</option>
                                 <option value="avengers">Avengers</option>
                                 <option value="starwars">Star_Wars</option>
                                 <option value="transformers">Transformers</option>

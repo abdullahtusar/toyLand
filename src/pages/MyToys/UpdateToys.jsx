@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
+import useTitle from '../../hook/useTitle';
+import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import { AuthContext } from '../../../providers/AuthProvider';
-import useTitle from '../../../hook/useTitle';
+import { useLoaderData } from 'react-router-dom';
 
-const AddAToy = () => {
-    useTitle('Add A Toy')
+const UpdateToys = () => {
+    useTitle('Update A Toy')
     const {user} = useContext(AuthContext);
-
-    const handleAddToy = event => {
+    const myToy = useLoaderData();
+    const { _id, title, photo, name, email, price, rating, quantity, description, category } = myToy;
+    const handleUpdateToy = event => {
         event.preventDefault();
         const form = event.target;
         const title = form.title.value;
@@ -20,33 +22,31 @@ const AddAToy = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         console.log(title, photo, name, email, category, rating, price, quantity, description);
-        const toys = {
+        const updateToy = {
             title,
             photo,
-            name,
-            email,
             category,
             rating,
             price,
             quantity,
             description
         }
-        console.log(toys);
+        console.log(updateToy);
 
-        fetch('https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys', {
-            method: 'POST',
+        fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${_id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(toys)
+            body: JSON.stringify(updateToy)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.modifiedId) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Successfully Added',
+                        title: 'Successfully Updated',
                         text: 'Successfully Added To Queue!',
                     })
                 }
@@ -55,35 +55,58 @@ const AddAToy = () => {
                 console.log(error)
             })
     }
+    // const handleUpdate = id => {
+    //     fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type' : 'application/json'
+    //         },
+    //         body: JSON.stringify({status: 'confirm'})
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data);
+    //         if(data.modifiedCount > 0){
+    //             //update status
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: 'SuccessFully Updated',
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //               })
+    //         }
+    //     })
+    // }
     return (
         <div>
             <div style={{backgroundImage: `url("https://i.ibb.co/W2hFjjK/wallpaperflare-com-wallpaper-3.jpg")` }} className="p-8 md:p-16 border-b-2 border-base-800 bg-base-200 rounded">
-                <form className='md:w-9/12 mx-auto bg-red-50 bg-opacity-25 rounded-lg p-4 md:p-8' onSubmit={handleAddToy}>
-                    <h1 className="text-5xl font-bold mb-10 text-center text-white">Add Your Toy</h1>
+                <form onSubmit={handleUpdateToy} className='md:w-9/12 mx-auto bg-red-50 bg-opacity-25 rounded-lg p-4 md:p-8' >
+                    <h1 className="text-5xl font-bold mb-10 text-center text-white">Update Toy</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white font-semibold">Title</span>
                             </label>
-                            <input type="text" name="title" placeholder="title" className="input input-bordered" required />
+                            <input type="text" name="title" placeholder="title" defaultValue={title} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white font-semibold">PhotoURL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="photo url" className="input input-bordered" required />
+                            <input type="text" name="photo" placeholder="photo url" defaultValue={photo} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white font-semibold">Seller Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="seller name" defaultValue={user?.displayName} className="input input-bordered" required />
+                            <input type="text" name="name" placeholder="seller name" defaultValue={name} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-white font-semibold">Seller Email</span>
                             </label>
-                            <input type="text" name="email" placeholder="email" defaultValue={user?.email} className="input input-bordered" required />
+                            <input type="text" name="email" placeholder="email" defaultValue={email} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label id="category" className="label">
@@ -91,7 +114,7 @@ const AddAToy = () => {
                             </label>
                             {/* <input type="text" name="name" placeholder="category" className="input input-bordered" />
                             <label ></label> */}
-                            <select name="category" id="category" className="input input-bordered" required >
+                            <select name="category" id="category" defaultValue={category} className="input input-bordered" required >
                                 <option>Unknown</option>
                                 <option value="avengers">Avengers</option>
                                 <option value="starwars">Star_Wars</option>
@@ -100,21 +123,21 @@ const AddAToy = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white font-semibold">Price</span>
+                                <span className="label-text text-white font-semibold" >Price</span>
                             </label>
-                            <input type="number" name="price" placeholder="price" className="input input-bordered" required />
+                            <input type="number" name="price" placeholder="price" defaultValue={price} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white font-semibold">Rating</span>
+                                <span className="label-text text-white font-semibold" >Rating</span>
                             </label>
-                            <input type="text" name="rating" placeholder="rating" className="input input-bordered" required />
+                            <input type="text" name="rating" placeholder="rating" defaultValue={rating} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white font-semibold">Available quantity</span>
+                                <span className="label-text text-white font-semibold" >Available quantity</span>
                             </label>
-                            <input type="number" name="quantity" placeholder='quantity' className="input input-bordered" required />
+                            <input type="number" name="quantity" defaultValue={quantity} placeholder='quantity' className="input input-bordered" required />
                         </div>
                     </div>
                     <div className='mt-6'>
@@ -123,7 +146,7 @@ const AddAToy = () => {
                                 <span className="label-text text-white font-semibold">Detail description</span>
                             </label>
                             {/* <input type="text" name="description" placeholder="description" className="input input-bordered" /> */}
-                            <textarea type="text" name="description" placeholder="description" className="textarea textarea-bordered textarea-md w-full" ></textarea>
+                            <textarea type="text" name="description" defaultValue={description} placeholder="description" className="textarea textarea-bordered textarea-md w-full" ></textarea>
                         </div>
                     </div>
                     <div className="form-control mt-8">
@@ -135,4 +158,4 @@ const AddAToy = () => {
     );
 };
 
-export default AddAToy;
+export default UpdateToys;

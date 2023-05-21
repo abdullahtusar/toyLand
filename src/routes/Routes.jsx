@@ -13,6 +13,7 @@ import PrivateRoute from './PrivateRoute';
 import SingleProduct from '../pages/Home/Products/SingleProduct';
 import AllToys from '../pages/Home/AllToys/AllToys';
 import MyToys from '../pages/MyToys/MyToys';
+import UpdateToys from '../pages/MyToys/UpdateToys';
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         {
             path: '/allToys',
             element: <AllToys></AllToys>,
-            loader: () => fetch('http://localhost:5000/toys')
+            loader: () => fetch('https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys')
         },
         {
             path: '/myToys',
@@ -45,7 +46,12 @@ const router = createBrowserRouter([
         {
             path: '/toys/:id',
             element: <PrivateRoute><SingleProduct></SingleProduct></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+            loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${params.id}`)
+        },
+        {
+            path: '/toys/update/:id',
+            element: <PrivateRoute><UpdateToys></UpdateToys></PrivateRoute>,
+            loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${params.id}`)
         },
         {
             path: '/login',

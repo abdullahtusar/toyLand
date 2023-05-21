@@ -1,6 +1,8 @@
 import React from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const MyToysRow = ({myToy}) => {
+const MyToysRow = ({myToy, handleDelete}) => {
     const { _id, title, photo, name, email, price, rating, quantity, description, category } = myToy;
     return (
         <tr>
@@ -25,11 +27,10 @@ const MyToysRow = ({myToy}) => {
             <td>{category}</td>
             <td>${price}</td>
             <th>
-                {/* {
-                    status === 'confirm'? <span className='font-bold text-xl text-[#FF3811]'>Confirmed</span>:
-                    <button onClick={()=>handleBookingConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>
-                } */}
-                
+                <Link to={`/toys/update/${_id}`}>
+                    <button className="btn btn-ghost btn-xl"><FaEdit className='text-xl '/></button>
+                </Link>
+                <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xl"><FaTrash className='text-xl text-red-600'/></button>
             </th>
         </tr>
     );

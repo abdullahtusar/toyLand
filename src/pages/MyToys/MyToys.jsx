@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import MyToysRow from './MyToysRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const navigate = useNavigate();
-    const url = `http://localhost:5000/toys?email=${user?.email}`;
+    const url = `https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys?email=${user?.email}`;
     useEffect(()=>{
         fetch(url)
         .then(res => res.json())
@@ -22,19 +23,38 @@ const MyToys = () => {
             
         })
     }, [url, navigate])
-    // useEffect(()=>{
-    //     fetch(url)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if(!data.error){
-    //             setMyToys(data);
-    //             console.log(myToys)
-    //         }
-    //         else{
-    //             navigate('/');
-    //         }   
-    //     });
-    // }, [url, navigate, myToys]);
+
+    const handleDelete = id =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.deletedCount > 0){
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                          );
+                        const remaining = myToys.filter(myToy => myToy._id !== id);
+                        setMyToys(remaining)
+                    }
+                })
+
+              
+            }
+          })
+    }
 
             
     const handleSort = () =>{
@@ -64,7 +84,8 @@ const MyToys = () => {
                             <th>Email</th>
                             <th>Category</th>
                             <th>Price</th>
-                            <th>Status</th>
+                            <th>Edit and Delete</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,7 +93,7 @@ const MyToys = () => {
                             myToys.map(myToy => <MyToysRow
                                 key={myToy._id}
                                 myToy={myToy}
-                                // handleDelete={handleDelete}
+                                handleDelete={handleDelete}
                                 // handleBookingConfirm = {handleBookingConfirm}
                             ></MyToysRow>)
                         }

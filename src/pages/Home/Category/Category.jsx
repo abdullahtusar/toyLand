@@ -7,11 +7,10 @@ import SubCategory3 from './SubCategory3';
 const Category = () => {
     const [toys, setToys] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch('https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
-    console.log(toys)
 
     return (
         <div className='bg-base-200 rounded p-6 md:p-12'>
@@ -32,7 +31,7 @@ const Category = () => {
                         <TabPanel>
                             <div className='grid md:grid-cols-3 md:p-10 justify-items-center'>
                                 {
-                                    toys.map(toy => <SubCategory
+                                    toys.slice(0, 3).map(toy => <SubCategory
                                         key={toy._id}
                                         toy={toy}
                                     ></SubCategory>)

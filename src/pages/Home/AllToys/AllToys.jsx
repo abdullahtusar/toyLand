@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysCard from './AllToysCard';
+import useTitle from '../../../hook/useTitle';
 
 const AllToys = () => {
+    useTitle('All Toys')
     const [query, setQuery]= useState("");
     const toys = useLoaderData();
     const search = (data) => {
@@ -21,7 +23,7 @@ const AllToys = () => {
                             <th>Price</th>
                             <th>Available Quantity</th>
                             <th>
-                                <input type="text" placeholder="Search…" className="search p-4 rounded input input-bordered" 
+                                <input type="text" placeholder="Search" className="search p-2 rounded-lg border-4 border-gray-200" 
                                 onChange={e=>setQuery(e.target.value)}/>
                             </th>
                         </tr>

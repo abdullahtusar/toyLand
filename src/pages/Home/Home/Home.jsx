@@ -4,8 +4,9 @@ import Gallery from '../Gallery/Gallery';
 import Category from '../Category/Category';
 import AboutUs from '../AboutUs/AboutUs';
 import Partners from '../Partner/Partners';
-
+import useTitle from '../../../hook/useTitle';
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
             <Banner></Banner>

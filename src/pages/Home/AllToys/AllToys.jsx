@@ -17,11 +17,11 @@ const AllToys = () => {
                     {/* head*/}
                     <thead>
                         <tr>
-                            <th>Seller Name</th>
+                            <th>Seller</th>
                             <th>Toy Title</th>
                             <th>Sub-Category</th>
                             <th>Price</th>
-                            <th>Available Quantity</th>
+                            <th>Quantity</th>
                             <th>
                                 <input type="text" placeholder="Search" className="search p-2 rounded-lg border-4 border-gray-200" 
                                 onChange={e=>setQuery(e.target.value)}/>

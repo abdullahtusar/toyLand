@@ -94,7 +94,6 @@ const MyToys = () => {
                                 key={myToy._id}
                                 myToy={myToy}
                                 handleDelete={handleDelete}
-                                // handleBookingConfirm = {handleBookingConfirm}
                             ></MyToysRow>)
                         }
                     </tbody>

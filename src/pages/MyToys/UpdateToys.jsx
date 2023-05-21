@@ -55,29 +55,7 @@ const UpdateToys = () => {
                 console.log(error)
             })
     }
-    // const handleUpdate = id => {
-    //     fetch(`https://b7a11-toy-marketplace-server-side-abdullahtusar.vercel.app/toys/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type' : 'application/json'
-    //         },
-    //         body: JSON.stringify({status: 'confirm'})
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         console.log(data);
-    //         if(data.modifiedCount > 0){
-    //             //update status
-    //             Swal.fire({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: 'SuccessFully Updated',
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //               })
-    //         }
-    //     })
-    // }
+
     return (
         <div>
             <div style={{backgroundImage: `url("https://i.ibb.co/W2hFjjK/wallpaperflare-com-wallpaper-3.jpg")` }} className="p-8 md:p-16 border-b-2 border-base-800 bg-base-200 rounded">
